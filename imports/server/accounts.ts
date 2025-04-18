@@ -122,6 +122,7 @@ Meteor.startup(() => {
 	Accounts.emailTemplates.siteName = settings.name;
 
 	// region VERIFICAR_EMAIL
+	/*
 	Accounts.emailTemplates.verifyEmail.subject = () => {
 		return settings.name;
 	};
@@ -161,6 +162,7 @@ Meteor.startup(() => {
 		const footer = `Essa mensagem foi gerada automaticamente!`;
 		return getHTMLEmailTemplate('Conclua o seu cadastro', email, footer);
 	};
+	*/
 
 	// endregion
 
@@ -217,7 +219,7 @@ Meteor.startup(() => {
 	});
 
 	Accounts.config({
-		sendVerificationEmail: true,
+		sendVerificationEmail: false,
 		forbidClientAccountCreation: false // impede que um usuário seja criado pelo cliente
 	});
 
@@ -239,7 +241,7 @@ Meteor.startup(() => {
 			};
 			return validateLoginGoogle(user);
 		}
-		if (!user || !user.emails || !user.emails[0].verified) {
+		if (!user || !user.emails) {
 			throw new Meteor.Error('Email ñao verificado', `Este email ainda não foi verificado!`);
 		}
 		return true;
