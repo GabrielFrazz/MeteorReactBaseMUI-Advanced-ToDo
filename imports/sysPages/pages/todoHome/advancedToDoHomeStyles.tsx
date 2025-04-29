@@ -93,14 +93,14 @@ const advancedToDoHomeStyle: ItoDoHomeStyles = {
 
 	SubText: styled(Typography)(({ theme }) => ({
 		color: '#fdffe2',
-		fontSize: 'clamp(2.5rem, 6vw, 3.5rem)',
+		fontSize: 'clamp(1.3rem, 5vw, 3rem)',
 		fontWeight: 400,
 		lineHeight: 1.2,
 		marginLeft: '8%',
 		marginBottom: '1rem',
 		textAlign: 'left',
 		[theme.breakpoints.down('sm')]: {
-			fontSize: 'clamp(1.8rem, 5vw, 3rem)',
+			fontSize: 'clamp(1.4rem, 4.2vw, 2.5rem)',
 			marginLeft: '0'
 		}
 	})),
@@ -125,7 +125,7 @@ const advancedToDoHomeStyle: ItoDoHomeStyles = {
 	ButtonWrapper: styled(Box)(({ theme }) => ({
 		width: '100%',
 		maxWidth: '300px',
-		margin: '1rem auto', 
+		margin: '1rem auto',
 		[theme.breakpoints.down('sm')]: {
 			maxWidth: '80%',
 			padding: '0 1rem'
@@ -139,7 +139,7 @@ const advancedToDoHomeStyle: ItoDoHomeStyles = {
 	})),
 
 	HomeButton: styled(Button)(({ theme }) => ({
-		background: `linear-gradient(135deg, ${theme.palette.todoColors.lightBlue}, ${theme.palette.todoColors.enchantBlue})`,
+		background: `linear-gradient(135deg, ${theme.palette.todoColors.lightPurple}, ${theme.palette.todoColors.enchantBlue})`,
 		width: '100%',
 		borderRadius: '15px',
 		padding: theme.spacing(1.5, 3),
@@ -156,7 +156,7 @@ const advancedToDoHomeStyle: ItoDoHomeStyles = {
 	})),
 
 	BoilerplateBox: styled(Box)(({ theme }) => ({
-		margin: '1rem auto', 
+		margin: '1rem auto',
 		textAlign: 'center',
 		width: '100%',
 		[theme.breakpoints.up('md')]: {
