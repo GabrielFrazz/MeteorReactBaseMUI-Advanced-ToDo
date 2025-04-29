@@ -2,7 +2,7 @@ import { ElementType } from 'react';
 import { styled } from '@mui/material/styles';
 import Box, { BoxProps } from '@mui/material/Box';
 import { sysSizing } from '/imports/ui/materialui/styles';
-import {SysSectionPaddingXY} from "/imports/ui/layoutComponents/sysLayoutComponents";
+import { SysSectionPaddingXY } from '/imports/ui/layoutComponents/sysLayoutComponents';
 
 interface ITodoDetailStyles {
 	Container: ElementType<BoxProps>;
@@ -10,15 +10,22 @@ interface ITodoDetailStyles {
 	Body: ElementType<BoxProps>;
 	Footer: ElementType<BoxProps>;
 	FormColumn: ElementType<BoxProps>;
+	CreatedBy: ElementType<BoxProps>;
 }
 
 const TodoDetailStyles: ITodoDetailStyles = {
-	Container: styled(SysSectionPaddingXY)(() => ({
+	Container: styled(SysSectionPaddingXY)(({ theme }) => ({
 		display: 'flex',
 		flexDirection: 'column',
+		width: '450px',
 		justifyContent: 'flex-start',
 		alignItems: 'flex-start',
-		gap: sysSizing.spacingFixedMd
+		padding: sysSizing.spacingFixedLg,
+		gap: sysSizing.spacingFixedMd,
+		[theme.breakpoints.down('sm')]: {
+			width: '100%',
+			padding: sysSizing.spacingFixedMd
+		}
 	})),
 	Header: styled(Box)({
 		display: 'flex',
@@ -34,6 +41,7 @@ const TodoDetailStyles: ITodoDetailStyles = {
 		alignItems: 'flex-start',
 		width: '100%',
 		gap: '64px',
+		padding: 0,
 		[theme.breakpoints.down('md')]: {
 			flexDirection: 'column',
 			gap: sysSizing.spacingFixedMd
@@ -46,7 +54,7 @@ const TodoDetailStyles: ITodoDetailStyles = {
 		alignItems: 'center',
 		width: '100%',
 		gap: sysSizing.spacingRemMd,
-		marginTop: '40px'
+		marginTop: '30px'
 	}),
 	FormColumn: styled(Box)({
 		width: '100%',
@@ -54,7 +62,18 @@ const TodoDetailStyles: ITodoDetailStyles = {
 		flexDirection: 'column',
 		justifyContent: 'flex-start',
 		alignItems: 'flex-start',
-		gap: sysSizing.spacingFixedLg
+		gap: sysSizing.spacingFixedLg,
+		padding: 0
+	}),
+	CreatedBy: styled(Box)({
+		display: 'flex',
+		flexDirection: 'row',
+		justifyContent: 'flex-end',
+		alignItems: 'center',
+		gap: sysSizing.spacingRemSm,
+		width: '100%',
+		padding: 0,
+		marginTop: sysSizing.spacingRemSm
 	})
 };
 
