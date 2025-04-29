@@ -54,6 +54,9 @@ export const getUserServer = async (connection?: { id: string } | null): IUserPr
 };
 
 class UserProfileServerApi extends ProductServerBase<IUserProfile> {
+	subscribe(arg0: string, arg1: { _id: string; }) {
+		throw new Error('Method not implemented.');
+	}
 	constructor() {
 		super('userprofile', userProfileSch);
 		this.addPublicationMeteorUsers();
