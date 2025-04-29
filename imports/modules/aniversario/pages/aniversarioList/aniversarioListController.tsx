@@ -30,13 +30,25 @@ export const AniversarioListControllerContext = React.createContext<IAniversario
 
 const initialConfig = {
 	sortProperties: { field: 'createdat', sortAscending: true },
-	filter: {},
+	filter: { createdby: Meteor.userId() },
 	searchBy: null,
 	viewComplexTable: false
 };
 
 const AniversarioListController = () => {
 	const [config, setConfig] = React.useState<IInitialConfig>(initialConfig);
+	const userId = useTracker(() => Meteor.userId(), []);
+
+	// Update filter when userId changes
+	React.useEffect(() => {
+		setConfig((prev) => ({
+			...prev,
+			filter: {
+				...prev.filter,
+				createdby: userId
+			}
+		}));
+	}, [userId]);
 
 	const { name, birthday, delivery } = aniversarioApi.getSchema();
 	const aniversarioSchReduzido = { birthday, name, delivery };

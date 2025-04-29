@@ -196,6 +196,10 @@ export class ApiBase<Doc extends IDoc> {
 	insert(docObj: any, callback: any) {
 		const newObj: { [key: string]: any } = { _id: docObj._id };
 		const schema = this.getSchema();
+
+		const userId = Meteor.userId();
+		newObj.createdby = userId;
+
 		Object.keys(docObj).forEach((key) => {
 			if (
 				!!schema[key] &&

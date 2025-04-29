@@ -9,16 +9,13 @@ class AniversarioServerApi extends ProductServerBase<IAniversario> {
 	constructor() {
 		super('aniversario', aniversarioSch, { resources: Recurso });
 
-    const self = this;
+		const self = this;
 
-		this.addPublication(
-			'aniversarioList',
-			(filter = {}) => {
-				return this.defaultListCollectionPublication(filter, {
-					projection: { name: 1, birthday: 1, phone: 1, remember: 1, delivery: 1 }
-				});
-			},
-		);
+		this.addPublication('aniversarioList', (filter = {}) => {
+			return this.defaultListCollectionPublication(filter, {
+				projection: { name: 1, birthday: 1, phone: 1, remember: 1, delivery: 1, createdby: 1 }
+			});
+		});
 
 		this.addPublication('aniversarioDetail', (filter = {}) => {
 			return this.defaultDetailCollectionPublication(filter, {
@@ -29,7 +26,7 @@ class AniversarioServerApi extends ProductServerBase<IAniversario> {
 		// this.addRestEndpoint(
 		// 	'view',
 		// 	(params, options) => {
-        // //debug console.log
+		// //debug console.log
 		// 		console.log('Params', params);
 		// 		console.log('options.headers', options.headers);
 		// 		return { status: 'ok' };

@@ -11,7 +11,7 @@ import { SysSelectField } from '/imports/ui/components/sysFormFields/sysSelectFi
 import { SysCheckBox } from '/imports/ui/components/sysFormFields/sysCheckBoxField/sysCheckBoxField';
 import SysFormButton from '/imports/ui/components/sysFormFields/sysFormButton/sysFormButton';
 import SysIcon from '/imports/ui/components/sysIcon/sysIcon';
-import {SysDatePickerField} from "/imports/ui/components/sysFormFields/sysDatePickerField/sysDatePickerField";
+import { SysDatePickerField } from '/imports/ui/components/sysFormFields/sysDatePickerField/sysDatePickerField';
 
 const AniversarioDetailView = () => {
 	const controller = useContext(AniversarioDetailControllerContext);
@@ -19,14 +19,7 @@ const AniversarioDetailView = () => {
 	const isView = state === 'view';
 	const isEdit = state === 'edit';
 	const isCreate = state === 'create';
-  const {
-    Container,
-    Body,
-    Header,
-    Footer,
-    FormColumn,
-    Image
-  } = AniversarioDetailStyles;
+	const { Container, Body, Header, Footer, FormColumn, Image } = AniversarioDetailStyles;
 
 	return (
 		<Container>
@@ -53,14 +46,14 @@ const AniversarioDetailView = () => {
 				<Body>
 					<FormColumn>
 						<SysTextField name={'name'} placeholder={'Ex.: Davi Esteves'} />
-            <SysDatePickerField name={'birthday'} />
-            <SysTextField name={'phone'} placeholder={'Ex.: (31) 99999-9999'} />
-            <SysCheckBox name={'remember'} />
-            <SysSelectField name={'delivery'} placeholder={'Selecionar'}/>
+						<SysDatePickerField name={'birthday'} />
+						<SysTextField name={'phone'} placeholder={'Ex.: (31) 99999-9999'} />
+						<SysCheckBox name={'remember'} />
+						<SysSelectField name={'delivery'} placeholder={'Selecionar'} />
 					</FormColumn>
-          <FormColumn>
-            <Image src={'/images/img-motivacional.svg'} />
-          </FormColumn>
+					<FormColumn>
+						<Image src={'/images/img-motivacional.svg'} />
+					</FormColumn>
 				</Body>
 				<Footer>
 					{!isView && (
