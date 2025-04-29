@@ -33,8 +33,8 @@ const sysPurpleColors: Partial<Record<ColorKey, string>> = {
 	20: '#1400a8',
 	30: '#312ebd',
 	40: '#4b4ad5',
-	50: '#6768f2',
-	60: '#8183ff',
+	50: '#6B4EFF',
+	60: '#B1A4FF',
 	70: '#a1a2ff',
 	80: '#c1c1ff',
 	90: '#e1dfff',
@@ -115,8 +115,8 @@ const sysBlueColors: Partial<Record<ColorKey, string>> = {
 
 const toDoColors: Partial<Record<ColorKey, string>> = {
 	30: '#FDFFE2',
-	40: '#83B4FF',
-	50: '#5A72A0',
+	40: '#86A8FC',
+	50: '#1F2F4A',
 	80: '#1A2130'
 } as const;
 //endregion
@@ -129,7 +129,7 @@ const sysLightPalette: PaletteOptions = {
 	todoColors: {
 		main: toDoColors[50]!,
 		bege: toDoColors[30],
-		lightBlue: toDoColors[40],
+		lightPurple: toDoColors[40],
 		enchantBlue: toDoColors[50],
 		darkBlue: toDoColors[80],
 		contrastText: sysCommonColors.white
@@ -144,7 +144,7 @@ const sysLightPalette: PaletteOptions = {
 
 	secondary: {
 		light: sysGreenColors[95],
-		main: sysGreenColors[80]!,
+		main: sysPurpleColors[60]!,
 		dark: sysGreenColors[60],
 		contrastText: sysGreyColors[20]
 	},
