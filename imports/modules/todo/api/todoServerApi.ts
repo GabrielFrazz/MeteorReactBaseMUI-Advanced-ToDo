@@ -3,6 +3,7 @@ import { Recurso } from '../config/recursos';
 import { todoSch, ITodo } from './todoSch';
 import { userprofileServerApi } from '/imports/modules/userprofile/api/userProfileServerApi';
 import { ProductServerBase } from '/imports/api/productServerBase';
+import { IUserProfile } from '/imports/modules/userprofile/api/userProfileSch';
 
 // endregion
 
@@ -19,36 +20,63 @@ class TodoServerApi extends ProductServerBase<ITodo> {
 			'todoList',
 			(filter = {}) => {
 				return this.defaultListCollectionPublication(filter, {
-					projection: { title: 1, type: 1, typeMulti: 1, createdat: 1 }
+					projection: { title: 1, description: 1, visibilidade: 1, checked: 1, createdat: 1, createdby: 1, usuario: 1}
 				});
 			},
-			(doc: ITodo & { nomeUsuario: string }) => {
-				const userProfileDoc = userprofileServerApi.getCollectionInstance().findOne({ _id: doc.createdby });
-				return { ...doc };
+			async (doc: ITodo & { usuario: string }) => {
+				try {
+					const userProfileDoc = await userprofileServerApi
+						.getCollectionInstance()
+						.findOneAsync({ _id: doc.createdby });
+					if (userProfileDoc?._id == Meteor.userId()) {
+						doc.usuario = 'Você';
+						return doc;
+					}
+					doc.usuario = userProfileDoc?.username || 'Unknown User';
+					return doc;
+				} catch (error) {
+					console.error('Error fetching user information:', error);
+					doc.usuario = 'Unknown User';
+					return doc;
+				}
 			}
 		);
 
-		this.addPublication('todoDetail', (filter = {}) => {
-			return this.defaultDetailCollectionPublication(filter, {
-				projection: {
-					contacts: 1,
-					title: 1,
-					description: 1,
-					type: 1,
-					typeMulti: 1,
-					date: 1,
-					files: 1,
-					chip: 1,
-					statusRadio: 1,
-					statusToggle: 1,
-					slider: 1,
-					check: 1,
-					address: 1
+		this.addTransformedPublication(
+			'todoDetail',
+			(filter = {}) => {
+				return this.defaultDetailCollectionPublication(filter, {
+					projection: {
+						title: 1,
+						description: 1,
+						visibilidade: 1,
+						checked: 1,
+						createdat: 1,
+						createdby: 1,
+						usuario: 1
+					}
+				});
+			},
+			async (doc: ITodo & { usuario: string }) => {
+				try {
+					const userProfileDoc = await userprofileServerApi
+						.getCollectionInstance()
+						.findOneAsync({ _id: doc.createdby });
+					if (userProfileDoc?._id == Meteor.userId()) {
+						doc.usuario = 'Você';
+						return doc;
+					}
+					doc.usuario = userProfileDoc?.username || 'Unknown User';
+					return doc;
+				} catch (error) {
+					console.error('Error fetching user information:', error);
+					doc.usuario = 'Unknown User';
+					return doc;
 				}
-			});
-		});
+			}
+		);
 
-		this.addRestEndpoint(
+/* 		this.addRestEndpoint(
 			'view',
 			(params, options) => {
 				console.log('Params', params);
@@ -76,7 +104,7 @@ class TodoServerApi extends ProductServerBase<ITodo> {
 				}
 			},
 			['get']
-		);
+		); */
 	}
 }
 
