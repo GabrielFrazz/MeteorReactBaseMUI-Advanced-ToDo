@@ -11,6 +11,7 @@ import SignInPage from '/imports/sysPages/pages/signIn/signIn';
 import AdvancedToDoHome from '/imports/sysPages/pages/todoHome/advancedToDoHome';
 import { SysLoading } from '/imports/ui/components/sysLoading/sysLoading';
 import ScreenRouteRender from './screenRouteRender';
+import todoWelcomeController from '/imports/modules/todo/pages/todoWelcome/todoWelcomeController';
 
 export const AppRouterSwitch: React.FC = React.memo(() => {
 	const { isLoggedIn, userLoading, user } = useContext<IAuthContext>(AuthContext);
@@ -24,6 +25,12 @@ export const AppRouterSwitch: React.FC = React.memo(() => {
 	const getProtectedRouteElement = (route: IRoute) => {
 		if (!route.isProtected) return <ScreenRouteRender {...route} />;
 		if (!isLoggedIn) return <ScreenRouteRender component={AdvancedToDoHome} templateVariant="None" />;
+		if (route.path === '/') {
+			const WelcomeRoute = sysRoutes.getRoutes().find((r) => r.path === '/welcome');
+			if (WelcomeRoute) {
+				return <ScreenRouteRender {...WelcomeRoute} />;
+			}
+		}
 
 		const hasAccess = segurancaApi.podeAcessarRecurso(getUser(), ...(route.resources || []));
 		return hasAccess ? (

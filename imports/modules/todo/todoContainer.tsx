@@ -1,8 +1,9 @@
 import React from 'react';
 import { IDefaultContainerProps } from '/imports/typings/BoilerplateDefaultTypings';
-import { useParams } from 'react-router-dom';
+import { useLocation, useParams } from 'react-router-dom';
 import TodoListController from '/imports/modules/todo/pages/todoList/todoListController';
 import TodoDetailController from '/imports/modules/todo/pages/todoDetail/todoDetailContoller';
+import TodoWelcomeController from './pages/todoWelcome/todoWelcomeController';
 
 export interface ITodoModuleContext {
 	state?: string;
@@ -20,7 +21,7 @@ export default (props: IDefaultContainerProps) => {
 
 	const renderPage = () => {
 		if (!state || !validState.includes(state)) return <TodoListController />;
-		return <TodoDetailController />;
+		return <TodoDetailController mode={'view'} />;
 	};
 
 	const providerValue = {

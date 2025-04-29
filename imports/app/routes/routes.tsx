@@ -6,20 +6,20 @@ import { useLocation } from 'react-router-dom';
 class SysRoutes {
 	private routes: Array<IRoute | null>;
 	private menuItens: Array<IAppMenu | null>;
-	public getRoutes = (): Array<IRoute>  => this.routes.filter((route) => route !== null) as Array<IRoute>;
+	public getRoutes = (): Array<IRoute> => this.routes.filter((route) => route !== null) as Array<IRoute>;
 	public getMenuItens = () => {
 		return this.menuItens.map((item) => {
-			if(!item?.path) return undefined;
+			if (!item?.path) return undefined;
 			const routeResources = this.routes.filter((route) => route?.path === item.path).map((route) => route?.resources);
 			return {
 				...item,
 				resources: routeResources.length > 0 ? routeResources[0] : undefined
-			}
+			};
 		});
 	};
 
 	constructor() {
-		this.routes = [...Modules.pagesRouterList, ...Pages.pagesRouterList ];
+		this.routes = [...Modules.pagesRouterList, ...Pages.pagesRouterList];
 		this.menuItens = [...Pages.pagesMenuItemList, ...Modules.pagesMenuItemList];
 	}
 

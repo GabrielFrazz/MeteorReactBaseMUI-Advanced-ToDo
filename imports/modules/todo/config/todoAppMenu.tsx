@@ -4,8 +4,13 @@ import SysIcon from '/imports/ui/components/sysIcon/sysIcon';
 
 export const todoMenuItemList: (IAppMenu | null)[] = [
 	{
+		path: '/',
+		name: 'Home',
+		icon: <SysIcon name={'home'} />
+	},
+	{
 		path: '/todo',
-		name: 'Exemplo',
-		icon: <SysIcon name={'dashboard'} />
+		name: 'Todo',
+		icon: <SysIcon name={'task'} />
 	}
 ];
