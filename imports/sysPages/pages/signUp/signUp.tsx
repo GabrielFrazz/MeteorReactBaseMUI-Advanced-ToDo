@@ -42,7 +42,7 @@ export const SignUp = (props: ISignUp) => {
 						message: 'Erro ao fazer registro em nossa base de dados!'
 					});
 			} else {
-				navigate('/signin');
+				navigate('/signin', { state: { from: 'signup' } });
 				showNotification &&
 					showNotification({
 						type: 'success',

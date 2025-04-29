@@ -89,7 +89,7 @@ const TodoListStyles: ITodoListStyles = {
 		gap: sysSizing.spacingFixedMd,
 		'&:hover': {
 			boxShadow: '0 10px 40px rgba(0, 0, 0, 0.25)',
-			transform: 'translateY(-2px)'
+			transform: 'translateY(-1px)'
 		},
 		[theme.breakpoints.down('md')]: {
 			width: '100%',

@@ -21,7 +21,16 @@ const TaskStyled: ITaskStyled = {
 		justifyContent: 'flex-start',
 		alignItems: 'stretch',
 		padding: sysSizing.spacingFixedXs,
-		gap: sysSizing.spacingFixedSm
+		gap: sysSizing.spacingFixedSm,
+		cursor: 'pointer',
+		borderRadius: '8px',
+		transition: 'background-color 0.2s ease',
+		'&:hover': {
+			backgroundColor: 'rgba(0, 0, 0, 0.07)'
+		},
+		'&:active': {
+			backgroundColor: 'rgba(0, 0, 0, 0.1)'
+		}
 	})),
 	Content: styled(Box)({
 		display: 'flex',
@@ -49,10 +58,6 @@ const TaskStyled: ITaskStyled = {
 		marginLeft: 15,
 		padding: sysSizing.spacingFixedXs,
 		overflow: 'hidden',
-		'&:hover': {
-			backgroundColor: 'rgba(0, 0, 0, 0.03)',
-			cursor: 'hand'
-		},
 		[theme.breakpoints.down('md')]: {
 			flexDirection: 'column',
 			width: '55%',
