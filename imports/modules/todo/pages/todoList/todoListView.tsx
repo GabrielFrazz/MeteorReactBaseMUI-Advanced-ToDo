@@ -14,6 +14,7 @@ import { SysSelectField } from '/imports/ui/components/sysFormFields/sysSelectFi
 import SysIcon from '/imports/ui/components/sysIcon/sysIcon';
 import { Task } from '/imports/modules/todo/components/taskItem/task';
 import { Chip } from '@mui/material';
+import { sysTextFieldStyled } from './todoListStyles';
 
 const TodoListView = () => {
 	const controller = React.useContext(TodoListControllerContext);
@@ -34,7 +35,8 @@ const TodoListView = () => {
 		ListWrapper,
 		NothingHere,
 		StatusBox,
-		VisibilityOff
+		VisibilityOff,
+		AllDone
 	} = TodoListStyles;
 
 	const notCompletedTasks = todoList?.filter((item) => !item.checked) || [];
@@ -70,6 +72,7 @@ const TodoListView = () => {
 						name="search"
 						placeholder="Pesquisar por nome"
 						onChange={controller.onChangeTextField}
+						sxMap={{ textField: sysTextFieldStyled }}
 						startAdornment={<SysIcon name={'search'} sx={{ color: 'white !important' }} />}
 					/>
 				</SearchContainer>
@@ -83,7 +86,9 @@ const TodoListView = () => {
 				<Box sx={{ width: '100%', display: 'flex', flexDirection: 'column' }}>
 					<ListWrapper>
 						<ListContainer>
-							<Typography variant="h4" sx={{ margin: '16px 0 8px' }}>
+							<Typography
+								variant="h4"
+								sx={(theme) => ({ margin: '16px 0 8px', color: theme.palette.todoColors.lightPurple })}>
 								Não Concluídas
 							</Typography>
 							<Box sx={{ display: 'flex', alignItems: 'center', mb: 2 }}>
@@ -121,7 +126,7 @@ const TodoListView = () => {
 											<Typography
 												variant="h6"
 												sx={(theme) => ({
-													color: theme.palette.todoColors.lightBlue,
+													color: theme.palette.todoColors.lightPurple,
 													fontWeight: 'bold'
 												})}>
 												Nenhuma tarefa nova
@@ -129,11 +134,11 @@ const TodoListView = () => {
 											<Typography
 												variant="body2"
 												sx={(theme) => ({
-													color: theme.palette.todoColors.lightBlue
+													color: theme.palette.todoColors.lightPurple
 												})}>
 												Adicione uma tarefa para vê-la aqui!
 											</Typography>
-											<NothingHere />
+											<AllDone />
 										</StatusBox>
 									)}
 								</Box>
@@ -142,7 +147,7 @@ const TodoListView = () => {
 									<Typography
 										variant="h6"
 										sx={(theme) => ({
-											color: theme.palette.todoColors.lightBlue,
+											color: theme.palette.todoColors.lightPurple,
 											fontWeight: 'bold'
 										})}>
 										Visibilidade Off
@@ -150,7 +155,7 @@ const TodoListView = () => {
 									<Typography
 										variant="body2"
 										sx={(theme) => ({
-											color: theme.palette.todoColors.lightBlue
+											color: theme.palette.todoColors.lightPurple
 										})}>
 										Clique no icone para ver as tarefas
 									</Typography>
@@ -160,7 +165,9 @@ const TodoListView = () => {
 						</ListContainer>
 
 						<ListContainer>
-							<Typography variant="h4" sx={{ margin: '16px 0 8px' }}>
+							<Typography
+								variant="h4"
+								sx={(theme) => ({ margin: '16px 0 8px', color: theme.palette.todoColors.lightPurple })}>
 								Concluídas
 							</Typography>
 							<Box sx={{ display: 'flex', alignItems: 'center', mb: 2 }}>
@@ -198,7 +205,7 @@ const TodoListView = () => {
 											<Typography
 												variant="h6"
 												sx={(theme) => ({
-													color: theme.palette.todoColors.lightBlue,
+													color: theme.palette.todoColors.lightPurple,
 													fontWeight: 'bold'
 												})}>
 												Nenhuma tarefa concluída
@@ -206,7 +213,7 @@ const TodoListView = () => {
 											<Typography
 												variant="body2"
 												sx={(theme) => ({
-													color: theme.palette.todoColors.lightBlue
+													color: theme.palette.todoColors.lightPurple
 												})}>
 												Conclua uma tarefa para vê-la aqui!
 											</Typography>
@@ -219,7 +226,7 @@ const TodoListView = () => {
 									<Typography
 										variant="h6"
 										sx={(theme) => ({
-											color: theme.palette.todoColors.lightBlue,
+											color: theme.palette.todoColors.lightPurple,
 											fontWeight: 'bold'
 										})}>
 										Visibilidade Off
@@ -227,7 +234,7 @@ const TodoListView = () => {
 									<Typography
 										variant="body2"
 										sx={(theme) => ({
-											color: theme.palette.todoColors.lightBlue
+											color: theme.palette.todoColors.lightPurple
 										})}>
 										Clique no icone para ver as tarefas
 									</Typography>

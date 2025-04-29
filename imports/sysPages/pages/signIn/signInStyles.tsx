@@ -125,7 +125,7 @@ const SignInStyles = (from: string): ISignInStyles => ({
 		opacity: 1
 	})),
 	StyledLoginButton: styled(SysFormButton)(({ theme }) => ({
-		background: `linear-gradient(135deg, ${theme.palette.todoColors.lightBlue}, ${theme.palette.todoColors.enchantBlue})`,
+		background: `linear-gradient(135deg, ${theme.palette.todoColors.lightPurple}, ${theme.palette.todoColors.enchantBlue})`,
 		width: '100%',
 		borderRadius: '20px',
 		padding: `${theme.spacing(1.5)} ${theme.spacing(3)}`,

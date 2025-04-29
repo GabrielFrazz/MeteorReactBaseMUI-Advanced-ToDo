@@ -19,10 +19,6 @@ export const SysViewFieldStyle = {
 		display: 'flex',
 		alignItems: 'center',
 		height: type === 'label' ? '21px' : '25px',
-		color: disabled
-			? theme.palette.sysText?.disabled
-			: type == 'label'
-				? theme.palette.sysText?.auxiliary
-				: theme.palette.sysText?.body
+		color: disabled ? theme.palette.sysText?.disabled : type == 'label' ? theme.palette.sysText?.auxiliary : '#FFFFFF'
 	}))
 };

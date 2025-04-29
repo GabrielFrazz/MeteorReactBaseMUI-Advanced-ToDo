@@ -9,6 +9,7 @@ import IconButton from '@mui/material/IconButton';
 import SysFormButton from '/imports/ui/components/sysFormFields/sysFormButton/sysFormButton';
 import SysIcon from '/imports/ui/components/sysIcon/sysIcon';
 import { SysSelectField } from '/imports/ui/components/sysFormFields/sysSelectField/sysSelectField';
+import { sysTextFieldStyled } from './todoDetailStyles';
 
 interface TodoDetailViewProps {
 	mode: 'create' | 'edit' | 'view';
@@ -31,12 +32,12 @@ const TodoDetailView = ({ mode }: TodoDetailViewProps) => {
 	return (
 		<Container>
 			<Header>
-				<Typography variant="h5" sx={{ flexGrow: 1 }}>
+				<Typography variant="h5" sx={{ flexGrow: 1, color: '#BB86FC' }}>
 					{isCreate ? 'Adicionar Tarefa' : isEdit ? 'Editar Tarefa' : 'Visualizar Tarefa'}
 				</Typography>
 
 				<IconButton onClick={controller.closePage}>
-					<SysIcon name="close" />
+					<SysIcon name="close" sx={{ color: '#BB86FC !important' }} />
 				</IconButton>
 			</Header>
 
@@ -48,7 +49,7 @@ const TodoDetailView = ({ mode }: TodoDetailViewProps) => {
 				loading={controller.loading}>
 				<Body>
 					<FormColumn>
-						<SysTextField name="title" placeholder="Ex.: Item XX" />
+						<SysTextField name="title" placeholder="Ex.: Item XX" sxMap={{ textField: sysTextFieldStyled }} />
 						<SysTextField
 							name="description"
 							placeholder="Acrescente informações sobre o item (3 linhas)"
@@ -57,6 +58,7 @@ const TodoDetailView = ({ mode }: TodoDetailViewProps) => {
 							maxRows={3}
 							showNumberCharactersTyped
 							max={200}
+							sxMap={{ textField: sysTextFieldStyled }}
 						/>
 						<SysSelectField name="visibilidade" placeholder="Selecionar" />
 					</FormColumn>
@@ -85,7 +87,7 @@ const TodoDetailView = ({ mode }: TodoDetailViewProps) => {
 							variant="caption"
 							sx={{
 								fontStyle: 'italic',
-								color: 'text.secondary'
+								color: 'white'
 							}}>
 							Criado por:
 							<br />

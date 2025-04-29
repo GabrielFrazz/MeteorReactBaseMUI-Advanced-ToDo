@@ -126,6 +126,39 @@ export const SysSelectField: React.FC<ISysSelectFieldProps> = ({
 						disabled={disabled || loading}
 						multiple={multiple}
 						IconComponent={() => <SysIcon name={'arrowDropDown'} />}
+						sx={{
+							color: '#1E1E1E !important',
+							'& .MuiInputBase-root': {
+								backgroundColor: '#1E1E1E !important',
+								borderRadius: '8px',
+								'&:hover': {
+									backgroundColor: '#1E1E1E !important'
+								},
+								'&.Mui-focused': {
+									backgroundColor: '#1E1E1E !important'
+								},
+								'&:active': {
+									backgroundColor: '#1E1E1E !important'
+								}
+							},
+							'& .MuiSelect-select': {
+								backgroundColor: '#1E1E1E !important',
+								borderRadius: '8px'
+							},
+							'& .MuiOutlinedInput-notchedOutline': {
+								borderColor: 'rgba(0, 0, 0, 0.23)'
+							},
+							'& .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline': {
+								borderColor: '#6b6b6b'
+							},
+							'& .MuiInputBase-input': {
+								color: '#FFFFFF',
+								backgroundColor: 'transparent',
+								'&:hover, &:focus, &:active': {
+									backgroundColor: 'transparent'
+								}
+							}
+						}}
 						renderValue={(options) => {
 							if (!hasValue(options)) {
 								return (

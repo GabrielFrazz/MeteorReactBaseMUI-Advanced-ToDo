@@ -12,6 +12,7 @@ import Box from '@mui/material/Box';
 import { IUserProfile } from '/imports/modules/userprofile/api/userProfileSch';
 import AppLayoutContext from '/imports/app/appLayoutProvider/appLayoutContext';
 import { useNavigate } from 'react-router-dom';
+import { textfieldSx } from '../signUp/signUpStyle';
 
 interface ISignUp {
 	showNotification: (options?: Object) => void;

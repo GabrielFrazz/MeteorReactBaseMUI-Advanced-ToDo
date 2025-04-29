@@ -77,4 +77,33 @@ const TodoDetailStyles: ITodoDetailStyles = {
 	})
 };
 
+export const sysTextFieldStyled = {
+	color: '#1E1E1E !important',
+	'& .MuiInputBase-root': {
+		backgroundColor: '#1E1E1E !important',
+		borderRadius: '8px',
+		'&:hover': {
+			backgroundColor: '#1E1E1E !important'
+		},
+		'&.Mui-focused': {
+			backgroundColor: '#1E1E1E !important'
+		},
+		'&:active': {
+			backgroundColor: '#1E1E1E !important'
+		}
+	},
+
+	'& .MuiInputBase-input': {
+		backgroundColor: 'transparent',
+		color: '#FFFFFF',
+		'&:hover, &:focus, &:active': {
+			backgroundColor: 'transparent'
+		}
+	},
+
+	'& .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline': {
+		borderColor: 'rgba(107, 107, 107, 0.3)'
+	}
+};
+
 export default TodoDetailStyles;

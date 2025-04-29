@@ -96,7 +96,7 @@ const SignUpStyle: ISignUpStyles = {
 		gap: theme.spacing(2)
 	})),
 	StyledLoginButton: styled(SysFormButton)(({ theme }) => ({
-		background: `linear-gradient(135deg, ${theme.palette.todoColors.lightBlue}, ${theme.palette.todoColors.enchantBlue})`,
+		background: `linear-gradient(135deg, ${theme.palette.todoColors.lightPurple}, ${theme.palette.todoColors.enchantBlue})`,
 		width: '100%',
 		borderRadius: '20px',
 		padding: `${theme.spacing(1.5)} ${theme.spacing(3)}`,
@@ -107,6 +107,24 @@ const SignUpStyle: ISignUpStyles = {
 			boxShadow: theme.shadows[4]
 		}
 	}))
+};
+
+export const textfieldSx = {
+	backgroundColor: 'white',
+	'& .MuiInputBase-input': {
+		color: '#000'
+	},
+	'& .MuiOutlinedInput-root': {
+		'& fieldset': {
+			borderColor: '#ddd'
+		},
+		'&:hover fieldset': {
+			borderColor: '#aaa'
+		},
+		'&.Mui-focused fieldset': {
+			borderColor: '#00aaff'
+		}
+	}
 };
 
 export default SignUpStyle;

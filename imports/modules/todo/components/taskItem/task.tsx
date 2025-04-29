@@ -99,7 +99,7 @@ export const Task: React.FC<ITask> = ({
 							}}>
 							<SysIcon
 								sx={(theme) => ({
-									color: theme.palette.todoColors.lightBlue
+									color: theme.palette.todoColors.lightPurple
 								})}
 								name={'edit'}
 							/>

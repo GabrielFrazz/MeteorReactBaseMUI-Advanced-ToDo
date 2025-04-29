@@ -3,24 +3,28 @@ import { IShowDialogProps } from '../../showDialog';
 import Button from '@mui/material/Button';
 import DialogActions from '@mui/material/DialogActions';
 import DialogTitle from '@mui/material/DialogTitle';
+import DialogContent from '@mui/material/DialogContent';
 import { deleteDialogStyles } from './deleteDialogStyles';
 import { IAppLayoutContext } from '/imports/app/appLayoutProvider/appLayoutContext';
+import Typography from '@mui/material/Typography';
+import { DialogContentText } from '@mui/material';
 
 interface IDeleteDialogProps extends IShowDialogProps {
-	showDialog: IAppLayoutContext['showDialog']
-	closeDialog: IAppLayoutContext['closeDialog']
+	showDialog: IAppLayoutContext['showDialog'];
+	closeDialog: IAppLayoutContext['closeDialog'];
 	onDeleteConfirm?: () => void;
 }
 
-function DeleteDialog({ showDialog, closeDialog, onDeleteConfirm, title, ...props }: IDeleteDialogProps) {
+function DeleteDialog({ showDialog, closeDialog, onDeleteConfirm, title, message, ...props }: IDeleteDialogProps) {
 	showDialog({
 		...props,
 		sx: deleteDialogStyles.box,
 		header: (
-			<DialogTitle variant="subtitle1" sx={{ padding: 0 }}>
+			<DialogTitle variant="subtitle1" sx={{ padding: 0 }} color="#BB86FC">
 				{title}
 			</DialogTitle>
 		),
+		body: <DialogContentText sx={{ color: '#FFFFFF' }}>{message}</DialogContentText>,
 		actions: (
 			<DialogActions sx={deleteDialogStyles.actions}>
 				<Button variant="outlined" onClick={closeDialog}>
@@ -73,5 +77,3 @@ const seuComponente = () => {
 
 
 */
-
-

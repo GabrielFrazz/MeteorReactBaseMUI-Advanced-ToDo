@@ -3,6 +3,7 @@ import { styled } from '@mui/material/styles';
 import Box, { BoxProps } from '@mui/material/Box';
 import { sysSizing } from '/imports/ui/materialui/styles';
 import { SysSectionPaddingXY } from '/imports/ui/layoutComponents/sysLayoutComponents';
+import { max } from 'lodash';
 
 interface ITodoListStyles {
 	Container: ElementType<BoxProps>;
@@ -13,6 +14,7 @@ interface ITodoListStyles {
 	NothingHere: ElementType<BoxProps>;
 	StatusBox: ElementType<BoxProps>;
 	VisibilityOff: ElementType<BoxProps>;
+	AllDone: ElementType<BoxProps>;
 }
 
 const TodoListStyles: ITodoListStyles = {
@@ -48,7 +50,7 @@ const TodoListStyles: ITodoListStyles = {
 		flexDirection: 'row',
 		justifyContent: 'flex-end',
 		alignItems: 'flex-end',
-		maxWidth: '700px',
+		maxWidth: '49%',
 		gap: sysSizing.spacingFixedMd,
 		marginBottom: theme.spacing(3),
 		'& .MuiInputBase-root': {
@@ -62,8 +64,12 @@ const TodoListStyles: ITodoListStyles = {
 				color: 'rgba(255, 255, 255, 0.6)'
 			}
 		},
+		[theme.breakpoints.down('md')]: {
+			maxWidth: '100%'
+		},
 		[theme.breakpoints.down('sm')]: {
-			flexDirection: 'column'
+			flexDirection: 'column',
+			maxWidth: '100%'
 		}
 	})),
 	ListContainer: styled(Box)(({ theme }) => ({
@@ -103,7 +109,7 @@ const TodoListStyles: ITodoListStyles = {
 		}
 	})),
 	NothingHere: styled(Box)(({ theme }) => ({
-		backgroundImage: 'url(/images/wireframe/planet.png)',
+		backgroundImage: 'url(/images/wireframe/planeta.png)',
 		backgroundSize: 'contain',
 		backgroundPosition: 'center',
 		backgroundRepeat: 'no-repeat',
@@ -118,7 +124,27 @@ const TodoListStyles: ITodoListStyles = {
 		textAlign: 'center',
 		padding: theme.spacing(2),
 		[theme.breakpoints.down('sm')]: {
-			height: '200px'
+			height: '250px'
+		}
+	})),
+	AllDone: styled(Box)(({ theme }) => ({
+		backgroundImage: 'url(/images/wireframe/action.png)',
+		backgroundSize: 'contain',
+		backgroundPosition: 'center',
+		backgroundRepeat: 'no-repeat',
+		width: '75%',
+		height: '75%',
+		display: 'flex',
+		flexDirection: 'column',
+		justifyContent: 'center',
+		marginLeft: 45,
+		alignItems: 'center',
+		color: 'rgba(255, 255, 255, 0.87)',
+		borderRadius: '12px',
+		textAlign: 'center',
+		padding: theme.spacing(2),
+		[theme.breakpoints.down('sm')]: {
+			height: '250px'
 		}
 	})),
 	StatusBox: styled(Box)(({ theme }) => ({
@@ -127,7 +153,7 @@ const TodoListStyles: ITodoListStyles = {
 		width: '100%',
 		height: '100%',
 		minHeight: '350px',
-		justifyContent: 'center',
+		justifyContent: 'flexstart',
 		alignItems: 'center'
 	})),
 	VisibilityOff: styled(Box)(({ theme }) => ({
@@ -146,14 +172,50 @@ export const dialogSx = {
 	borderRadius: sysSizing.radiusMd,
 	padding: sysSizing.spacingFixedLg,
 	gap: sysSizing.spacingFixedLg,
-	backgroundColor: 'rgba(255,255,255,0.85)',
+	backgroundColor: '#1E1E1E',
 	backdropFilter: 'blur(15px)',
-	border: '1px solid rgba(255,255,255,0.8)',
+	boxShadow: '0 0 6px rgba(0, 0, 0, 0.15)',
+	//border: '1px solid rgba(255,255,255,0.8)',
 	width: '100%',
 	maxWidth: 500,
 	margin: '0 auto',
 	'@media (max-width: 600px)': {
 		width: '90%'
+	},
+	//hover
+	transition: 'box-shadow 0.3s ease, transform 0.3s ease',
+	'&:hover': {
+		boxShadow: '0 10px 40px rgba(0, 0, 0, 0.25)',
+		transform: 'translateY(-2px)'
+	}
+};
+
+export const sysTextFieldStyled = {
+	color: '#242731 !important',
+	'& .MuiInputBase-root': {
+		backgroundColor: '#242731 !important',
+		borderRadius: '8px',
+		'&:hover': {
+			backgroundColor: '#242731 !important'
+		},
+		'&.Mui-focused': {
+			backgroundColor: '#242731 !important'
+		},
+		'&:active': {
+			backgroundColor: '#242731 !important'
+		}
+	},
+
+	'& .MuiInputBase-input': {
+		backgroundColor: 'transparent',
+		color: '#FFFFFF',
+		'&:hover, &:focus, &:active': {
+			backgroundColor: 'transparent'
+		}
+	},
+
+	'& .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline': {
+		borderColor: 'rgba(107, 107, 107, 0.3)'
 	}
 };
 
