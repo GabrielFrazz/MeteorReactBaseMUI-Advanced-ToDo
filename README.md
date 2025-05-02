@@ -1,4 +1,4 @@
-# Advanced To-Do List
+# ✅ Advanced To-Do List
 
 <div>
   <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original-wordmark.svg"      title="React"     alt="React"     width="40" height="40" />&nbsp;
@@ -10,6 +10,8 @@
 
 <br/>
 
+🌐 [Read this in English](README.en.md)
+
 ## Sumário
 
 - [Sobre o Projeto](#sobre-o-projeto)
@@ -17,6 +19,8 @@
 - [Tecnologias Utilizadas](#tecnologias-utilizadas)
 - [Como Executar](#como-executar)
 - [Demonstração](#demonstração)
+  - [Desktop](#desktop)
+  - [Mobile](#mobile)
 
 ## Sobre o Projeto
 
@@ -86,4 +90,18 @@ http://localhost:3000
 
 ## Demonstração
 
+### Desktop
+
 ![Demonstração do Advanced To-Do List](assets/2025-04-29%2016-58-54.gif)
+
+### Mobile
+
+<table>
+  <tr>
+    <td width="320">
+      <img src="assets/mobileview.gif" alt="Demonstração Mobile do Advanced To-Do List" width="280" />
+    </td>
+    <td>
+      <p>A versão mobile mantém todas as funcionalidades da aplicação desktop em uma interface adaptada para telas menores, proporcionando uma experiência fluida em smartphones e tablets.</p>
+  </tr>
+</table>
