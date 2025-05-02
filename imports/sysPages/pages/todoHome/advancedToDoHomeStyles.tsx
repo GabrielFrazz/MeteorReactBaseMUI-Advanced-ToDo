@@ -20,7 +20,7 @@ interface ItoDoHomeStyles {
 
 const advancedToDoHomeStyle: ItoDoHomeStyles = {
 	Container: styled(Box)(({ theme }) => ({
-		background: "url('/images/Cloudy.svg') no-repeat center center",
+		background: "url('/images/wireframe/Cloudy.svg') no-repeat center center",
 		backgroundSize: 'cover',
 		minHeight: '100vh',
 		width: '100%',
