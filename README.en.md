@@ -98,12 +98,11 @@ http://localhost:3000
 
 <table>
   <tr>
-    <td width="320">
-      <img src="assets/mobileview.gif" alt="Advanced To-Do List Mobile Demo" width="280" />
+    <td width="320" align="center">
+      <img src="assets/mobileview.gif" alt="Demonstração Mobile do Advanced To-Do List" width="280" />
     </td>
     <td>
-      <h4>Optimized Mobile Experience</h4>
-      <p>The mobile version maintains all the functionality of the desktop application in an interface adapted for smaller screens, providing a fluid experience on smartphones and tablets.</p>
-     
+       <p>The mobile version maintains all the functionality of the desktop application in an interface adapted for smaller screens, providing a fluid experience on smartphones and tablets.</p>
+    </td>
   </tr>
 </table>
